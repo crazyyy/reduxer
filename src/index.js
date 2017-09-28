@@ -6,31 +6,19 @@ import { createStore } from "redux"
 import App from "./App"
 import "./index.css"
 
-const initialState = [
-  'Smells like spirit',
-  'Enter Sandman'
-]
+import reducer from "./reducers/"
 
-function playlist(state = initialState, action) {
-  switch (action.type) {
-    case "ADD_TRACK": {
-      return [
-        ...state,
-        action.payload
-      ]
-    }
-  }
-
-  return state
-}
-
-const store = createStore(playlist)
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("root"))
+  document.getElementById("root")
+)
 
 // const addTrackBtn = document.querySelectorAll(".addTrack")[0]
 // const trackInput = document.querySelectorAll(".trackInput")[0]
