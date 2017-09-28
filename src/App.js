@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from 'react-redux'
 
 class App extends Component {
   render() {
+    console.log(this.props.testStore)
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <input type="text" />
+        <button>add track</button>
+        <ul>
+            {this.props.testStore.map((track, index) =>
+              <li key={index}>{track}</li>
+            )}
+        </ul>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    testStore: state
+  }),
+  dispatch => ({})
+)(App);
