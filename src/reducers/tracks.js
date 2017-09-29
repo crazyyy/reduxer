@@ -1,9 +1,12 @@
-const initialState = ["Smells like spirit", "Enter Sandman"]
+const initialState = []
 
 export default function tracks(state = initialState, action) {
   switch (action.type) {
     case "ADD_TRACK": {
       return [...state, action.payload]
+    }
+    case "FIND_TRACK": {
+      return state
     }
     case "DELETE_TRACK": {
       return state
