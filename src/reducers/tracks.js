@@ -8,8 +8,8 @@ export default function tracks(state = initialState, action) {
     case "FIND_TRACK": {
       return state
     }
-    case "DELETE_TRACK": {
-      return state
+    case "FETCH_TRACKS_SUCCESS": {
+      return action.payload
     }
   }
   return state
